@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    stages {
+        stage('2Test') {
+            
+            parallel {
+                stage('Performance test') {
+                    steps { 
+                        echo "Perfrmance test"
+                    }
+                }
+                stage('Smoke test') {
+                    steps { 
+                        echo "Smoke test"
+                    }
+                }
+            }
+        }
+        stage('2Build') {
+            steps {
+                echo "Build"
+            }
+        }
+        stage('2Deploy (Staging)') {
+            steps {
+                echo "Deploy (Staging"
+            }
+        }
+        stage('2Manual Approval') {
+            steps {
+                echo "Deploy (Staging"
+            }
+        }
+        stage('2Deploy (Production)') {
+            steps {
+                echo "Deploy (Production)"
+            }
+        }   
+    }
+}
