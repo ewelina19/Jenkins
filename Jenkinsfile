@@ -2,6 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Test') {
+            
             parallel {
                 stage('Performance test') {
                     steps { 
